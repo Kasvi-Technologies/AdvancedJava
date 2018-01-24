@@ -112,6 +112,20 @@ jstack -l <pid> > logfilename
 samurai is one of the tool to open thread dumps
 
 
+		Executor Services
+
+1. you can define how many threads you need to run in your application
+
+2. start your threads using executor services. 
+
+3. callable interface can return a value
+
+
+
+
+
+
+
 
 
 

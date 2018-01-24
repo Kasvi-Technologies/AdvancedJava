@@ -1,0 +1,361 @@
+Threads
+Runnable
+Callable
+Futute
+Executors
+Thread Schedulers
+CountDownLatch
+ThreadLocal Varables
+Synchonization
+Locks
+ReentrantLocks
+ReentrantReadWriteLocks
+Deadlocks
+How to analyze deadlocks and what are the tools available
+
+		Environment Setup
+
+1. JDK 1.8 32 bit/64bit
+
+2.Eclipse Neon 32 bit / 6 bit
+
+Threads
+
+1. will execute parallelly. That means asynchronous manner
+
+2. there are 2 ways to create a thread in java applcation
+
+Thread class  or Runnable interface
+
+	run() -> run method is available in runnable 			         interface. 
+		
+		 run() method should contain the business
+		 logic which will execute in the background
+	
+
+By default Thread class implements Runnable
+	
+	start() - > method will call the run () method and 		    this run() method will be executed in the       background
+
+
+Excercise
+
+1. create a SMS Thread similar to Mail Thread
+
+2. Write a test program 
+	a. create 2 -3 mail threads
+	b. create 2-3 sms threads
+	c. start all threads 
+
+
+Runnable Interface
+
+
+With Out Synchronization
+
+	a. A
+
+		amount
+
+	T1  - A
+
+	T2  - A
+	
+
+BankAccount
+	
+		int amount =
+
+
+		deposit(){
+
+		}
+
+
+		withdraw(){
+
+		}
+
+}
+
+T1  -> BA  -> depost()
+
+T2  -> BA  -> withdraw()
+
+		Excercise
+
+
+1. Message class with message variable
+
+	a. write a produce(String message) method 
+	b. and set some message to message variable
+	c. and call notify
+
+	a. write a consumer() method
+	b. if message is null, wait()
+	c. display the message after wait()
+
+
+2. ProducerThread will have run method (), that will call produce method() with message
+
+3. ConsumerThread will have run method() that will call consume() method
+
+d. test program -. 
+	a. Message object, consumerthread and 	   	              producerthread
+ 	b. start consumer thread and producer thread
+
+jstack utitilty to collect thread dump
+
+jstack -l <pid> > logfilename
+
+
+samurai is one of the tool to open thread dumps
+
+
+		Executor Services
+
+1. you can define how many threads you need to run in your application
+
+2. start your threads using executor services. 
+
+3. callable interface can return a value but runnable interface cant return
+
+			
+			Day 2
+
+Excercise
+
+1. create a test program
+	a. create a callable interface implementaton using
+	Anonymous inner class. It should return only integer
+	b. Create a ExecutorService
+	c. submit the callable object to executor service
+	d. get the return value of callable interface and         display in console
+
+
+2.Thread Schedulers
+
+3. Thread Local variables
+
+4. Reentrant or reentrancy
+
+public synchronized void method1 (){
+
+	method2();
+
+}
+
+
+public Synchronized void method2 (){
+
+
+}
+
+t1.method1()  -> method2 -> 30 mins
+
+t2.method2() -> 
+
+5. Lock, Reentrant lock, ReentrantReadWriteLock
+
+	a. using ths locks, you can avoid synchronized methods 	and blocks
+
+	b. 
+
+
+
+6. How to troubleshoot the memory leaks in applicaton
+
+	
+
+	This will consume more memory 
+	
+	Thread dump -> will tells us how many threads are 		running/waitng/deadlocked at that particular tme
+	
+	Heap Dump -> will tell us what are the objects are 		alive at that particular time in JVM and which objects 	can cause memory leaks in the applications
+	
+	a. try to create 10000 or 1 lac employee objects and 		add it in arraylist.
+
+	a. java -XX:HeapDumpOnOutOfmemoryError
+
+	b. if you want to manually generate the heap dump
+
+	jmap -dump:format=b,file=sample.bin <pid>
+
+	c. download ha456.jar or go to github and download
+	IBM heap Analyzer
+	Eclipse Memory Analyzer
+	Your Kit java Profiler
+
+	d. from command prompt specify 
+	java -jar ha456.jar
+
+
+			Reflection
+
+it can be used to inspect class related metadata like fields, methods, constructors at the runtime.
+
+ 
+	a. how to create an object or instance in java
+	
+	new
+	
+	Class.forName -> is used to create an instance of 	class
+
+
+			Serialzation
+
+
+1. is a mechanism to persist the state of an object into file system
+
+private static final long serialVersionUID = 1L;
+	
+	private String description;
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lock reentrantlock
+reentrantreadwritelock
+heap analyzer
+
+
+reflection
+serialization
+
+concurrenthashmap
+copyonwritearraylist
+comparable
+comparator
+hashcode and equals
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
